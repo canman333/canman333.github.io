@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1> JavaScript Basics </h1>
+
+
+    <p>Push each button to see the specific function work:</p>
+
+    <button onclick="ifConditional()"> if statement</button>
+    <p id="test"></p>
+
+    <button onclick="ifElse()"> if else </button>
+    <p id="conditional"></p>
+
+    <button onclick="timegreeting()"> if, else if </button>
+    <p id="functionTest"></p>
+
+    <button onclick="forLoop()"> for loop </button>
+    <p id="test2"></p>
+
+    <button onclick="forInLoop()"> for in loop </button>
+    <p id ="forInLoop"></p>
+
+    <button onclick="whileLoop(number1,number2)"> while loop with Params</button>
+    <p id="whileLoop"></p>
+
+    <button onclick="doWhileLoop(number1,number2)"> do while loop</button>
+    <p id="doWhileLoop"></p>
+
+<script>
+       var address = {street:"Shenandoah Park Avenue",streetNumber:"6331",city:"Salt Lake City",state:"Utah",zipCode:"84121"};
+       var cars = ["Mclaren", "Lamborghini", "Ferrari", "Honda NSX"];
+       var number1 = prompt("Please enter limit number")
+       var number2 = prompt("please enter a begining number")
+
+        //functions
+        function ifConditional() {
+            greeting = "hello";
+            if (greeting != "hi") {
+                text2 = "Someone would like to greet you! Bob says " + greeting;
+            }
+            document.getElementById("test").innerHTML = text2;
+        }
+
+        function timegreeting() {
+            var salutation;
+            var time = new Date().getHours();
+
+            if (time < 12) {
+                salutation = "'Morning";
+            }
+            else if (time > 12 && time < 16) {
+                salutation = "Good Afternoon";
+            }
+            else {
+                salutation = "Good evening"
+            }
+            document.getElementById("functionTest").innerHTML = salutation;
+        }
+
+        function ifElse() {
+            var comment;
+            if (cars.length > 10) {
+                comment = "You have a lot of nice cars!";
+            }
+            else {
+                comment = "You don't have enough nice cars, you only have " + cars.length + " cars."
+            }
+            document.getElementById("conditional").innerHTML = comment;
+        }
+
+        function forLoop(){
+            text1 = "";
+            for (i = 0; i < cars.length; i++) {
+            text1 += cars[i] + "<br>";
+            }
+            document.getElementById("test2").innerHTML = text1;
+        }
+
+        function forInLoop(){
+            var text = "";
+            var x;
+            for (x in address){
+                text += address[x] + ", ";
+            }
+            document.getElementById("forInLoop").innerHTML = text;
+        }
+
+        function whileLoop(number1,number2){
+            var text = "";
+            if (number1 != null && number2 != null){
+                startNumber = parseInt(number2);
+                endNumber = parseInt(number1);
+                while (startNumber < endNumber){
+                    text += "The Number is " + startNumber + "<br>";
+                    startNumber++;
+                }
+            }
+            document.getElementById("whileLoop").innerHTML = text;
+        }
+
+        function doWhileLoop(number1,number2){
+            var text = "";
+            if (number1 != null && number2 != null){
+                startNumber = parseInt(number2);
+                endNumber = parseInt(number1);
+                do{
+                    text += "The Number is " + startNumber + "<br>";
+                    startNumber++;
+                }
+                while (startNumber < endNumber);
+            }
+            document.getElementById("doWhileLoop").innerHTML = text;
+        }
+
+</script>
+</body>
+
+</html>
